@@ -3,16 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Download Videos from Pexels</title>
+    <title>Pexels Video Downloader</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Pexels Video Dowonloader</h1>
+      <h1>Pexels Video Downloader</h1>
       <div id="loader" class="loader-container">
         <div class="loader"></div>
       </div>
       <div class="form-container">
+        <div>
+          <label for="apiKey">API Key:</label>
+          <input type="text" id="apiKey" placeholder="Enter your Pexels API key" />
+        </div>
         <div>
           <label for="keywords">Enter keywords:</label>
           <input type="text" id="keywords" placeholder="Enter your keywords" value="nature" />
