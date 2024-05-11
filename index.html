@@ -17,9 +17,23 @@
           <label for="apiKey">API Key:</label>
           <input type="text" id="apiKey" placeholder="Enter your Pexels API key" />
         </div>
+        <div class="input-container">
+          <input
+            type="file"
+            id="fileInput"
+            class="file-input"
+            accept=".txt"
+            onchange="handleFile(this)"
+          />
+          <label for="fileInput" class="file-input-label">Upload Keywords File</label>
+        </div>
         <div>
-          <label for="keywords">Enter keywords:</label>
-          <input type="text" id="keywords" placeholder="Enter your keywords" value="nature" />
+          <label for="keywords">Extracted Keywords:</label>
+          <textarea
+            id="keywords"
+            rows="4"
+            placeholder="Extracted keywords will appear here"
+          ></textarea>
         </div>
         <div>
           <label for="numVideos">Number of videos to download:</label>
@@ -41,11 +55,15 @@
             <option value="large" selected>Large</option>
           </select>
         </div>
-        <button class="btn" onclick="fetchAndDownloadVideos()">Download Videos</button>
+        <button class="btn" onclick="startOperation()">Download Videos</button>
         <div id="status" class="status-message"></div>
       </div>
     </div>
 
     <script src="script.js"></script>
+    <script src="keyword-extractor.js"></script>
+    <script src="id-logger.js"></script>
+    <script src="fetch-videos.js"></script>
+    <script src="download-videos.js"></script>
   </body>
 </html>
