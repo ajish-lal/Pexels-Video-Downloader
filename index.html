@@ -55,17 +55,15 @@
             <option value="large" selected>Large</option>
           </select>
         </div>
-        <div class="btn-container">
-          <button class="btn btn-red" onclick="clearStorage()">Clear Cache</button>
-          <button class="btn" onclick="startOperation()">Download Videos</button>
-        </div>
+        <button class="btn" onclick="startOperation()">Download Videos</button>
         <div id="status" class="status-message"></div>
+        <button class="btn btn-red" onclick="clearStorage()">Clear Cache</button>
       </div>
     </div>
 
     <script src="script.js"></script>
     <script src="keyword-extractor.js"></script>
-    <script src="id-logger.js"></script>
+    <script src="video-id-logger.js"></script>
     <script src="fetch-videos.js"></script>
     <script src="download-videos.js"></script>
   </body>

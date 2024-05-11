@@ -4,7 +4,8 @@ const startOperation = async () => {
     .value.split(',')
     .map((keyword) => keyword.trim());
 
-  for (const keyword of keywords) {
-    await fetchAndDownloadVideos(keyword);
+  for (let index = 0; index < keywords.length; index++) {
+    const keyword = keywords[index];
+    await fetchAndDownloadVideos(keyword, index + 1);
   }
 };

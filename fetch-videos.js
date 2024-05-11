@@ -1,5 +1,5 @@
 // Function to fetch and download videos
-const fetchAndDownloadVideos = async (keywords) => {
+const fetchAndDownloadVideos = async (keywords, parentIndex) => {
   readApiKey();
   // Read API key from localStorage
   const apiKey = localStorage.getItem('apiKey');
@@ -12,16 +12,14 @@ const fetchAndDownloadVideos = async (keywords) => {
   const perPage = document.getElementById('numVideos').value;
   const orientation = document.getElementById('orientation').value;
   const size = document.getElementById('size').value;
-  const downloadDelay = 3000;
+  const downloadDelay = 5000;
 
   const loader = document.getElementById('loader');
   loader.style.display = 'flex'; // Show loader
   document.getElementById('status').innerHTML = ''; // Reset status
 
   try {
-    let parentIndex = 0;
     while (true) {
-      parentIndex++;
       const url = `https://api.pexels.com/videos/search?query=${keywords}&per_page=${80}&page=${currentPage}&orientation=${orientation}&size=${size}`;
       const headers = { Authorization: apiKey };
 

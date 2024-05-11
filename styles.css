@@ -42,14 +42,13 @@ textarea {
 
 .btn-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .btn {
   background-color: #007bff;
   color: #fff;
   cursor: pointer;
-  width: 40%;
 }
 
 .btn:hover {
@@ -97,6 +96,7 @@ textarea {
 
 .status-message {
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 10px;
   border-radius: 5px;
   background-color: #f7f7f7;

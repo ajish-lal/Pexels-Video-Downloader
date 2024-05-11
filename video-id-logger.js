@@ -27,5 +27,7 @@ const readApiKey = () => {
 };
 
 const clearStorage = () => {
-  localStorage.removeItem('downloadedVideos');
+  if (confirm('Do you really want to clear the cache?') === true) {
+    localStorage.removeItem('downloadedVideos');
+  }
 };
