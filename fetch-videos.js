@@ -19,7 +19,9 @@ const fetchAndDownloadVideos = async (keywords) => {
   document.getElementById('status').innerHTML = ''; // Reset status
 
   try {
+    let parentIndex = 0;
     while (true) {
+      parentIndex++;
       const url = `https://api.pexels.com/videos/search?query=${keywords}&per_page=${80}&page=${currentPage}&orientation=${orientation}&size=${size}`;
       const headers = { Authorization: apiKey };
 
@@ -41,7 +43,9 @@ const fetchAndDownloadVideos = async (keywords) => {
         break;
       }
 
-      for (const video of data.videos) {
+      for (let index = 0; index < data.videos.length; index++) {
+        const video = data.videos[index];
+        // for (const video of data.videos) {
         const videoId = video.id;
         // Check if video ID has already been downloaded
         if (!downloadedVideoIds.includes(videoId) && videosDownloaded < parseInt(perPage)) {
@@ -58,7 +62,7 @@ const fetchAndDownloadVideos = async (keywords) => {
           }
           // Download the video if URL is found
           if (videoUrl) {
-            const fileName = `${videoId}_${videoUrl.split('/').pop()}`;
+            const fileName = `${parentIndex}_${index}__${keywords}__${videoUrl.split('/').pop()}`;
             await downloadVideo(videoUrl, fileName);
             await new Promise((resolve) => setTimeout(resolve, downloadDelay));
             // Add video ID to downloadedVideoIds array

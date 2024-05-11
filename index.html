@@ -55,7 +55,10 @@
             <option value="large" selected>Large</option>
           </select>
         </div>
-        <button class="btn" onclick="startOperation()">Download Videos</button>
+        <div class="btn-container">
+          <button class="btn btn-red" onclick="clearStorage()">Clear Cache</button>
+          <button class="btn" onclick="startOperation()">Download Videos</button>
+        </div>
         <div id="status" class="status-message"></div>
       </div>
     </div>

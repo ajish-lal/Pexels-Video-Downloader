@@ -25,3 +25,7 @@ const readApiKey = () => {
     localStorage.setItem('apiKey', apiKey);
   }
 };
+
+const clearStorage = () => {
+  localStorage.removeItem('downloadedVideos');
+};

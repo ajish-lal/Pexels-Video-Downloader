@@ -26,7 +26,7 @@ select,
 textarea,
 .btn {
   display: block;
-  width: calc(100% - 22px);
+  width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -40,14 +40,28 @@ textarea {
   min-height: 100px; /* Set minimum height to ensure visibility */
 }
 
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .btn {
   background-color: #007bff;
   color: #fff;
   cursor: pointer;
+  width: 40%;
 }
 
 .btn:hover {
   background-color: #0056b3;
+}
+
+.btn.btn-red {
+  background-color: #f44336;
+}
+
+.btn.btn-red:hover {
+  background-color: #c1372d;
 }
 
 .loader-container {
@@ -107,7 +121,7 @@ textarea {
 
 .file-input-label {
   display: block;
-  background-color: #007bff;
+  background-color: #4caf50;
   color: #fff;
   padding: 10px;
   border-radius: 5px;
