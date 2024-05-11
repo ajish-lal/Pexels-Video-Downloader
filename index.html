@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download Videos from Pexels</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pexels Video Dowonloader</h1>
+      <div id="loader" class="loader-container">
+        <div class="loader"></div>
+      </div>
+      <div class="form-container">
+        <div>
+          <label for="keywords">Enter keywords:</label>
+          <input type="text" id="keywords" placeholder="Enter your keywords" value="nature" />
+        </div>
+        <div>
+          <label for="numVideos">Number of videos to download:</label>
+          <input type="number" id="numVideos" min="1" max="30" value="4" />
+        </div>
+        <div>
+          <label for="orientation">Orientation:</label>
+          <select id="orientation">
+            <option value="landscape">Landscape</option>
+            <option value="portrait">Portrait</option>
+            <option value="square">Square</option>
+          </select>
+        </div>
+        <div>
+          <label for="size">Size:</label>
+          <select id="size">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large" selected>Large</option>
+          </select>
+        </div>
+        <button class="btn" onclick="fetchAndDownloadVideos()">Download Videos</button>
+        <div id="status" class="status-message"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
