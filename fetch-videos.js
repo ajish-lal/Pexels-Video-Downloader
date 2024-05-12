@@ -17,6 +17,11 @@ const fetchAndDownloadVideos = async (keywords, parentIndex) => {
   loader.style.display = 'flex'; // Show loader
   document.getElementById('status').innerHTML = ''; // Reset status
 
+  const downloadDelay = 5000;
+
+  const delayerFunction = async () =>
+    await new Promise((resolve) => setTimeout(resolve, downloadDelay));
+
   try {
     while (true) {
       const url = `https://api.pexels.com/videos/search?query=${keywords}&per_page=${80}&page=${currentPage}&orientation=${orientation}&size=${size}`;
@@ -39,6 +44,8 @@ const fetchAndDownloadVideos = async (keywords, parentIndex) => {
         ).innerHTML = `<p>Error: No videos present for the keyword "${keywords}"</p>`;
         break;
       }
+
+      await delayerFunction();
 
       for (let index = 0; index < data.videos.length; index++) {
         const video = data.videos[index];
@@ -75,7 +82,6 @@ const fetchAndDownloadVideos = async (keywords, parentIndex) => {
       // If no new videos were downloaded on this page, proceed to the next page
       if (videosDownloaded < parseInt(perPage)) {
         currentPage++; // Move to the next page
-        await delayerFunction();
       } else {
         break;
       }
