@@ -12,7 +12,6 @@ const fetchAndDownloadVideos = async (keywords, parentIndex) => {
   const perPage = document.getElementById('numVideos').value;
   const orientation = document.getElementById('orientation').value;
   const size = document.getElementById('size').value;
-  const downloadDelay = 5000;
 
   const loader = document.getElementById('loader');
   loader.style.display = 'flex'; // Show loader
@@ -62,7 +61,7 @@ const fetchAndDownloadVideos = async (keywords, parentIndex) => {
           if (videoUrl) {
             const fileName = `${parentIndex}_${index}__${keywords}__${videoUrl.split('/').pop()}`;
             await downloadVideo(videoUrl, fileName);
-            await new Promise((resolve) => setTimeout(resolve, downloadDelay));
+            await delayerFunction();
             // Add video ID to downloadedVideoIds array
             downloadedVideoIds.push(videoId);
             videosDownloaded++; // Increment counter for downloaded videos
@@ -76,7 +75,7 @@ const fetchAndDownloadVideos = async (keywords, parentIndex) => {
       // If no new videos were downloaded on this page, proceed to the next page
       if (videosDownloaded < parseInt(perPage)) {
         currentPage++; // Move to the next page
-        await new Promise((resolve) => setTimeout(resolve, downloadDelay));
+        await delayerFunction();
       } else {
         break;
       }
