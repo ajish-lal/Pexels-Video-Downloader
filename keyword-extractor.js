@@ -18,20 +18,28 @@ const handleFile = (input) => {
 };
 
 const extractKeywords = (fileContent) => {
-  // Split file content by lines
-  const lines = fileContent.split('\n');
   let keywords = '';
-
-  // Iterate over each line
-  lines.forEach((line) => {
-    // Split line by ':'
-    const parts = line.split(':');
-    if (parts.length === 2) {
-      const keyword = parts[0].trim();
-      const relatedWords = parts[1].split(',').map((word) => word.trim());
-      keywords += `${relatedWords.join(', ')}, `;
+  try {
+    const keywordsObj = JSON.parse(fileContent);
+    for (const key in keywordsObj) {
+      keywords += `${keywordsObj[key].join(', ')}, `;
     }
-  });
+  } catch (error) {
+    console.log('Keywords file is not in JSON format');
+    // Split file content by lines
+    const lines = fileContent.split('\n');
 
-  return keywords.replace(/,\s*$/, '');
+    // Iterate over each line
+    lines.forEach((line) => {
+      // Split line by ':'
+      const parts = line.split(':');
+      if (parts.length === 2) {
+        const keyword = parts[0].trim();
+        const relatedWords = parts[1].split(',').map((word) => word.trim());
+        keywords += `${relatedWords.join(', ')}, `;
+      }
+    });
+  } finally {
+    return keywords.replace(/,\s*$/, '');
+  }
 };
