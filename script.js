@@ -1,4 +1,4 @@
-const downloadDelay = 3000;
+const downloadDelay = 4000;
 
 const delayerFunction = async () =>
   await new Promise((resolve) => setTimeout(resolve, downloadDelay));

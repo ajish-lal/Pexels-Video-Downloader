@@ -47,7 +47,7 @@ const fetchAndDownloadImages = async (keywords, parentIndex) => {
         const photoId = photo.id;
         // Check if image ID has already been downloaded
         if (!downloadedImageIds.includes(photoId) && imagesDownloaded < parseInt(perPage)) {
-          let imageUrl = photo.src.original; // Adjust for different image sizes if needed
+          let imageUrl = photo.src['original']; // Adjust for different image sizes if needed
 
           // Download the image if URL is found
           if (imageUrl) {

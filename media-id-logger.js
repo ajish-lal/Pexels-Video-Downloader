@@ -32,8 +32,9 @@ const readApiKey = () => {
 };
 
 const clearStorage = () => {
-  if (confirm('Do you really want to clear the cache?') === true) {
+  if (confirm('Are you sure you want to clear the cache?') === true) {
     localStorage.removeItem('downloadedVideos');
     localStorage.removeItem('downloadedImages');
+    document.getElementById('status').innerHTML += `<p>Cache has been cleared!</p>`;
   }
 };
