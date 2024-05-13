@@ -1,3 +1,8 @@
+const downloadDelay = 3000;
+
+const delayerFunction = async () =>
+  await new Promise((resolve) => setTimeout(resolve, downloadDelay));
+
 const startOperation = async () => {
   const keywords = document
     .getElementById('keywords')

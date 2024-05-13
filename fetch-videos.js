@@ -17,11 +17,6 @@ const fetchAndDownloadVideos = async (keywords, parentIndex) => {
   loader.style.display = 'flex'; // Show loader
   document.getElementById('status').innerHTML = ''; // Reset status
 
-  const downloadDelay = 5000;
-
-  const delayerFunction = async () =>
-    await new Promise((resolve) => setTimeout(resolve, downloadDelay));
-
   try {
     while (true) {
       const url = `https://api.pexels.com/videos/search?query=${keywords}&per_page=${80}&page=${currentPage}&orientation=${orientation}&size=${size}`;

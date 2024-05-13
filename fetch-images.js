@@ -17,11 +17,6 @@ const fetchAndDownloadImages = async (keywords, parentIndex) => {
   loader.style.display = 'flex'; // Show loader
   document.getElementById('status').innerHTML = ''; // Reset status
 
-  const downloadDelay = 5000;
-
-  const delayerFunction = async () =>
-    await new Promise((resolve) => setTimeout(resolve, downloadDelay));
-
   try {
     // Read downloaded image IDs from localStorage
     const downloadedImageIds = readDownloadedMediaIds('image');
