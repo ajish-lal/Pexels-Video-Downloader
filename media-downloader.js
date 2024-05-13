@@ -1,6 +1,6 @@
-const downloadVideo = async (videoUrl, fileName) => {
+const downloadMedia = async (mediaUrl, fileName) => {
   try {
-    const response = await fetch(videoUrl);
+    const response = await fetch(mediaUrl);
     const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');

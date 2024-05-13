@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pexels Video Downloader</title>
+    <title>Pexels Media Downloader</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Pexels Video Downloader</h1>
+      <h1>Pexels Media Downloader</h1>
       <div id="loader" class="loader-container">
         <div class="loader"></div>
       </div>
@@ -36,8 +36,8 @@
           ></textarea>
         </div>
         <div>
-          <label for="numVideos">Number of videos to download:</label>
-          <input type="number" id="numVideos" min="1" max="30" value="4" />
+          <label for="numMedia">Number of media to download:</label>
+          <input type="number" id="numMedia" min="1" max="30" value="4" />
         </div>
         <div>
           <label for="orientation">Orientation:</label>
@@ -55,7 +55,28 @@
             <option value="large" selected>Large</option>
           </select>
         </div>
-        <button class="btn" onclick="startOperation()">Download Videos</button>
+        <div class="media-type-container">
+          <label for="mediaType" class="media-type-label">Media Type:</label>
+          <div class="checkbox-container">
+            <input
+              type="checkbox"
+              id="videoCheckbox"
+              class="checkbox-input"
+              value="video"
+              checked
+            />
+            <label for="videoCheckbox" class="checkbox-label">Video</label>
+            <input
+              type="checkbox"
+              id="photoCheckbox"
+              class="checkbox-input"
+              value="photo"
+              checked
+            />
+            <label for="photoCheckbox" class="checkbox-label">Photo</label>
+          </div>
+        </div>
+        <button class="btn" onclick="startOperation()">Download Media</button>
         <div id="status" class="status-message"></div>
         <button class="btn btn-red" onclick="clearStorage()">Clear Cache</button>
       </div>
@@ -63,8 +84,9 @@
 
     <script src="script.js"></script>
     <script src="keyword-extractor.js"></script>
-    <script src="video-id-logger.js"></script>
+    <script src="media-id-logger.js"></script>
     <script src="fetch-videos.js"></script>
-    <script src="download-videos.js"></script>
+    <script src="fetch-images.js"></script>
+    <script src="media-downloader.js"></script>
   </body>
 </html>

@@ -133,3 +133,26 @@ textarea {
 .file-input-label:hover {
   background-color: #0056b3;
 }
+
+/* Media Type field styles */
+.media-type-container {
+  margin-bottom: 20px;
+}
+
+.media-type-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  margin-right: 10px;
+}
+
+.checkbox-input {
+  margin-right: 5px;
+}

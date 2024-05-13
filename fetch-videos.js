@@ -9,7 +9,7 @@ const fetchAndDownloadVideos = async (keywords, parentIndex) => {
   }
 
   let currentPage = 1; // Initialize current page number
-  const perPage = document.getElementById('numVideos').value;
+  const perPage = document.getElementById('numMedia').value;
   const orientation = document.getElementById('orientation').value;
   const size = document.getElementById('size').value;
 
@@ -34,7 +34,7 @@ const fetchAndDownloadVideos = async (keywords, parentIndex) => {
       const data = await response.json();
 
       // Read downloaded video IDs from localStorage
-      const downloadedVideoIds = readDownloadedVideoIds();
+      const downloadedVideoIds = readDownloadedMediaIds('video');
 
       let videosDownloaded = 0; // Counter for downloaded videos on this page
 
@@ -67,7 +67,7 @@ const fetchAndDownloadVideos = async (keywords, parentIndex) => {
           // Download the video if URL is found
           if (videoUrl) {
             const fileName = `${parentIndex}_${index}__${keywords}__${videoUrl.split('/').pop()}`;
-            await downloadVideo(videoUrl, fileName);
+            await downloadMedia(videoUrl, fileName);
             await delayerFunction();
             // Add video ID to downloadedVideoIds array
             downloadedVideoIds.push(videoId);
@@ -77,7 +77,7 @@ const fetchAndDownloadVideos = async (keywords, parentIndex) => {
       }
 
       // Write updated downloaded video IDs to localStorage
-      writeDownloadedVideoIds(downloadedVideoIds);
+      writeDownloadedMediaIds(downloadedVideoIds, 'video');
 
       // If no new videos were downloaded on this page, proceed to the next page
       if (videosDownloaded < parseInt(perPage)) {
